@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Валентин Тюкин - Ринопластика в Ростове-на-Дону</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            line-height: 1.7;
+            color: #2d2d2d;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 120px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 Q300,50 600,50 T1200,0 L1200,120 L0,120 Z" fill="rgba(0,0,0,0.1)"/></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        header .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #c9a961;
+            font-weight: 400;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #c9a961;
+            color: #1a1a1a;
+            padding: 18px 45px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background: #d4b574;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        section:nth-child(even) {
+            background: #fafafa;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            text-align: center;
+            color: #1a1a1a;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #c9a961;
+            margin: 20px auto 0;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2d2d2d;
+            font-weight: 400;
+        }
+
+        /* Before/After Gallery Section */
+        .before-after-section {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .before-after-section h2 {
+            color: white;
+        }
+
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .before-after-card {
+            background: #2d2d2d;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .before-after-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-comparison {
+            position: relative;
+            height: 400px;
+            background: #3d3d3d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c9a961;
+            font-size: 1.2rem;
+        }
+
+        .before-after-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .before-after-info h3 {
+            color: #c9a961;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .before-after-info p {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .about-text ul {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .about-text ul li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .about-text ul li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #c9a961;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            height: 500px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c9a961;
+            font-size: 1.3rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 4px;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: #c9a961;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .service-card h3 {
+            color: #1a1a1a;
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+            font-weight: 400;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Advantages */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .advantage-item {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .advantage-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #c9a961 0%, #d4b574 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.2rem;
+            color: white;
+        }
+
+        .advantage-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .advantage-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Process */
+        .process-timeline {
+            max-width: 900px;
+            margin: 60px auto;
+        }
+
+        .process-step {
+            display: flex;
+            margin-bottom: 50px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #c9a961;
+            color: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 2rem;
+            flex-shrink: 0;
+            margin-right: 30px;
+        }
+
+        .step-content h3 {
+            color: #1a1a1a;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .step-content p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Reviews */
+        .reviews-container {
+            max-width: 1000px;
+            margin: 60px auto;
+        }
+
+        .review-card {
+            background: white;
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 30px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 1.1rem;
+        }
+
+        .review-stars {
+            color: #c9a961;
+            font-size: 1.3rem;
+        }
+
+        .review-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+        }
+
+        .contact-section h2 {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            margin-top: 60px;
+        }
+
+        .contact-cta {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .phone-button {
+            display: inline-block;
+            background: #c9a961;
+            color: #1a1a1a;
+            padding: 20px 50px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .phone-button:hover {
+            background: #d4b574;
+            transform: translateY(-2px);
+        }
+
+        .taplink-button {
+            display: inline-block;
+            background: transparent;
+            color: #c9a961;
+            padding: 18px 45px;
+            border: 2px solid #c9a961;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .taplink-button:hover {
+            background: #c9a961;
+            color: #1a1a1a;
+        }
+
+        .contact-form h3 {
+            color: #c9a961;
+            margin-bottom: 30px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            border-radius: 2px;
+            font-size: 1rem;
+            background: #2d2d2d;
+            color: white;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #888;
+        }
+
+        .contact-form button {
+            background: #c9a961;
+            color: #1a1a1a;
+            padding: 16px 45px;
+            border: none;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-form button:hover {
+            background: #d4b574;
+        }
+
+        /* Footer */
+        footer {
+            background: #0d0d0d;
+            color: #888;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            header .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .before-after-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header>
+        <div class="container">
+            <h1>Валентин Тюкин</h1>
+            <p class="subtitle">Пластический хирург, ЛОР-хирург</p>
+            <p>Ринопластика и риносептопластика в Ростове-на-Дону<br>
+            Стаж более 26 лет • Веду частный прием</p>
+            <a href="#contact" class="cta-button">Записаться на консультацию</a>
+        </div>
+    </header>
+
+    <!-- Before/After Gallery -->
+    <section id="results" class="before-after-section">
+        <div class="container">
+            <h2>Результаты операций</h2>
+            <div class="before-after-grid">
+                <div class="before-after-card">
+                    <div class="image-comparison">
+                        До / После
+                    </div>
+                    <div class="before-after-info">
+                        <h3>Ринопластика</h3>
+                        <p>Коррекция формы носа с восстановлением гармоничных пропорций</p>
+                    </div>
+                </div>
+                <div class="before-after-card">
+                    <div class="image-comparison">
+                        До / После
+                    </div>
+                    <div class="before-after-info">
+                        <h3>Риносептопластика</h3>
+                        <p>Эстетическая коррекция + восстановление носового дыхания</p>
+                    </div>
+                </div>
+                <div class="before-after-card">
+                    <div class="image-comparison">
+                        До / После
+                    </div>
+                    <div class="before-after-info">
+                        <h3>Вторичная ринопластика</h3>
+                        <p>Коррекция последствий предыдущих операций</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>О докторе</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Валентин Юрьевич Тюкин</h3>
+                    <p>Я пластический хирург и ЛОР-хирург с более чем 26-летним стажем работы. Специализируюсь на функциональной и эстетической ринопластике, применяя современные малоинвазивные методики.</p>
+                    <p>Веду частный прием в Ростове-на-Дону, где провожу операции на носе любой сложности, включая первичные, вторичные и реконструктивные вмешательства.</p>
+                    <ul>
+                        <li>Образование: РНИМУ им. Н.И. Пирогова</li>
+                        <li>Пластический хирург</li>
+                        <li>ЛОР-хирург (детский и взрослый)</li>
+                        <li>Эндоскопист</li>
+                        <li>Владею инновационными техниками пьезохирургии</li>
+                        <li>Стаж более 26 лет</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <p>Фото доктора</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>Специализация</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Ринопластика</h3>
+                    <p>Эстетическая коррекция формы носа для достижения гармоничных пропорций лица. Индивидуальный подход к каждому пациенту с учетом анатомических особенностей и пожеланий.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Риносептопластика</h3>
+                    <p>Комплексная операция, сочетающая эстетическую коррекцию с восстановлением носового дыхания. Решаю одновременно функциональные и эстетические задачи.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Пьезохирургия</h3>
+                    <p>Инновационная ультразвуковая методика, обеспечивающая минимальную травматичность тканей, высокую точность и быстрое восстановление после операции.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Септопластика</h3>
+                    <p>Хирургическая коррекция искривленной носовой перегородки для восстановления полноценного носового дыхания и профилактики осложнений.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Вторичная ринопластика</h3>
+                    <p>Коррекция неудовлетворительных результатов предыдущих операций. Требует высокой квалификации и опыта хирурга.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Эндоскопические операции</h3>
+                    <p>Малоинвазивные вмешательства с использованием эндоскопического оборудования: лечение хронического синусита, удаление полипов и других новообразований.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- International Training Section -->
+    <section id="training">
+        <div class="container">
+            <h2>Регулярные международные стажировки</h2>
+            <div style="text-align: center; color: #666; font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                <p>Контент будет добавлен позже</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section id="advantages">
+        <div class="container">
+            <h2>Преимущества</h2>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">⚕️</div>
+                    <h3>Опыт 26+ лет</h3>
+                    <p>Более четверти века практики в пластической хирургии и ЛОР-хирургии</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🔬</div>
+                    <h3>Современные технологии</h3>
+                    <p>Применяю пьезохирургию и эндоскопические малоинвазивные методики</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🎯</div>
+                    <h3>Комплексный подход</h3>
+                    <p>Решаю эстетические и функциональные задачи одновременно</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">💎</div>
+                    <h3>Быстрое восстановление</h3>
+                    <p>Малоинвазивные техники для минимизации реабилитационного периода</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <div class="container">
+            <h2>Как проходит операция</h2>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">💬</div>
+                    <div class="step-content">
+                        <h3>Консультация</h3>
+                        <p>Первичный осмотр, детальное обсуждение ваших пожеланий, 3D-моделирование будущего результата, назначение необходимых обследований и анализов.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">📋</div>
+                    <div class="step-content">
+                        <h3>Подготовка</h3>
+                        <p>Сдача анализов, консультация анестезиолога-реаниматолога, получение подробных рекомендаций по подготовке к операции.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">✂️</div>
+                    <div class="step-content">
+                        <h3>Операция</h3>
+                        <p>Провожу ринопластику под общей анестезией с применением современных методик и оборудования. Длительность операции 1,5-3 часа в зависимости от объема.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">🏥</div>
+                    <div class="step-content">
+                        <h3>Восстановление</h3>
+                        <p>Наблюдение в клинике, снятие фиксирующей гипсовой повязки через 7-10 дней, постепенное схождение отеков. Окончательный результат формируется через 6-12 месяцев.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">👁️</div>
+                    <div class="step-content">
+                        <h3>Наблюдение</h3>
+                        <p>Регулярные плановые осмотры для контроля процесса заживления и корректировки рекомендаций при необходимости.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+        <div class="container">
+            <h2>Отзывы пациентов</h2>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-author">Анна</span>
+                        <span class="review-stars">★★★★★</span>
+                    </div>
+                    <p>Валентин Юрьевич - настоящий профессионал своего дела! Делала ринопластику, результат превзошел все ожидания. Очень внимательный доктор, все подробно объяснил, показал на 3D-модели как будет выглядеть результат. Восстановление прошло легко, без осложнений. Спасибо огромное за мой новый красивый нос!</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-author">Дмитрий</span>
+                        <span class="review-stars">★★★★★</span>
+                    </div>
+                    <p>Долго не решался на операцию из-за проблем с дыханием и искривленной перегородки. Валентин Юрьевич сделал риносептопластику - теперь не только дышу свободно, но и нос выглядит намного лучше! Операция прошла без осложнений, быстро восстановился. Очень рекомендую этого доктора!</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-author">Елена</span>
+                        <span class="review-stars">★★★★★</span>
+                    </div>
+                    <p>Благодарна доктору за золотые руки и чуткое отношение. Ринопластика была выполнена безупречно, нос выглядит естественно и красиво, именно так, как я и хотела. Все этапы были под контролем, всегда можно было связаться с доктором. Чувствовала себя в полной безопасности.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Контакты и запись</h2>
+            <div class="contact-grid">
+                <div class="contact-cta">
+                    <a href="tel:+79166979684" class="phone-button">+7 916 697-96-84</a>
+                    <a href="https://taplink.cc/dr_tyukin" target="_blank" class="taplink-button">Перейти в Taplink</a>
+                </div>
+                <div class="contact-form">
+                    <h3>Записаться на консультацию</h3>
+                    <form>
+                        <input type="text" placeholder="Ваше имя" required>
+                        <input type="tel" placeholder="Телефон" required>
+                        <input type="email" placeholder="Email">
+                        <textarea rows="4" placeholder="Ваш комментарий или вопрос"></textarea>
+                        <button type="submit">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Валентин Тюкин - Ринопластика. Все права защищены.</p>
+            <p>Ростов-на-Дону • Частный прием</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за заявку! Я свяжусь с вами в ближайшее время.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
