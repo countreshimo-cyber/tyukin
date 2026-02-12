@@ -792,11 +792,68 @@
             });
         });
 
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
+        // Telegram Bot Configuration
+        const TELEGRAM_BOT_TOKEN = '8564588844:AAHOhvh5jfRtJvQKAt_VFU-6e374CekxcsY';
+        const TELEGRAM_CHAT_ID = '157563909';
+
+        // Form submission with Telegram integration
+        document.querySelector('form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            alert('Спасибо за заявку! Я свяжусь с вами в ближайшее время.');
-            this.reset();
+            
+            // Get form data
+            const name = this.querySelector('input[type="text"]').value;
+            const phone = this.querySelector('input[type="tel"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const comment = this.querySelector('textarea').value;
+            
+            // Get current date and time
+            const now = new Date();
+            const dateTime = now.toLocaleString('ru-RU', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            // Create message for Telegram
+            let message = '🔔 Новая заявка с сайта!\n\n';
+            message += `👤 Имя: ${name}\n`;
+            message += `📞 Телефон: ${phone}\n`;
+            if (email) {
+                message += `📧 Email: ${email}\n`;
+            }
+            if (comment) {
+                message += `💬 Комментарий: ${comment}\n`;
+            }
+            message += `\n🕐 Время: ${dateTime}`;
+            
+            // Send to Telegram
+            const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+            
+            try {
+                const response = await fetch(telegramUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+                
+                if (response.ok) {
+                    alert('✅ Спасибо за заявку! Я свяжусь с вами в ближайшее время.');
+                    this.reset();
+                } else {
+                    throw new Error('Ошибка отправки');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('❌ Произошла ошибка при отправке. Пожалуйста, позвоните по телефону +7 916 697-96-84');
+            }
         });
     </script>
 </body>
