@@ -271,6 +271,79 @@
             line-height: 1.8;
         }
 
+        /* Training Gallery */
+        .training-gallery {
+            margin-top: 60px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 20px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .training-gallery::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .training-gallery::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        .training-gallery::-webkit-scrollbar-thumb {
+            background: #c9a961;
+            border-radius: 4px;
+        }
+
+        .training-gallery::-webkit-scrollbar-thumb:hover {
+            background: #b38f51;
+        }
+
+        .training-scroll {
+            display: flex;
+            gap: 30px;
+            padding: 10px;
+        }
+
+        .training-card {
+            flex: 0 0 auto;
+            width: 320px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .training-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .training-image {
+            width: 100%;
+            height: 427px;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .training-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .training-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .training-info h3 {
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            margin: 0;
+            line-height: 1.5;
+        }
+
         /* Advantages */
         .advantages-grid {
             display: grid;
@@ -633,12 +706,53 @@
         </div>
     </section>
 
-    <!-- International Training Section -->
+    <!-- Training Section -->
     <section id="training">
         <div class="container">
-            <h2>Регулярные международные стажировки</h2>
-            <div style="text-align: center; color: #666; font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
-                <p>Контент будет добавлен позже</p>
+            <h2>Стажировки</h2>
+            <div class="training-gallery">
+                <div class="training-scroll">
+                    <div class="training-card">
+                        <div class="training-image">
+                            <img src="images/training-1.jpg" alt="Стажировка у доктора Илькера Чавушоглу">
+                        </div>
+                        <div class="training-info">
+                            <h3>Стажировка у доктора Илькера Чавушоглу (Ялова, Турция)</h3>
+                        </div>
+                    </div>
+                    <div class="training-card">
+                        <div class="training-image">
+                            <img src="images/training-2.jpg" alt="Дни функциональной ринопластики и септопластики">
+                        </div>
+                        <div class="training-info">
+                            <h3>Дни функциональной ринопластики и септопластики в Москве</h3>
+                        </div>
+                    </div>
+                    <div class="training-card">
+                        <div class="training-image">
+                            <img src="images/training-3.jpg" alt="Дни функциональной ринопластики и септопластики">
+                        </div>
+                        <div class="training-info">
+                            <h3>Дни функциональной ринопластики и септопластики в Москве</h3>
+                        </div>
+                    </div>
+                    <div class="training-card">
+                        <div class="training-image">
+                            <img src="images/training-4.jpg" alt="Дни функциональной ринопластики и септопластики">
+                        </div>
+                        <div class="training-info">
+                            <h3>Дни функциональной ринопластики и септопластики в Москве</h3>
+                        </div>
+                    </div>
+                    <div class="training-card">
+                        <div class="training-image">
+                            <img src="images/training-5.jpg" alt="Национальный конгресс">
+                        </div>
+                        <div class="training-info">
+                            <h3>Национальный конгресс с международным участием "Пластическая хирургия, эстетическая медицина и косметология" (Москва)</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
