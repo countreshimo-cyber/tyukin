@@ -238,7 +238,7 @@
             font-size: 1.3rem;
         }
 
-        /* Professional Journey Timeline */
+        /* Professional Journey Multi-Track Timeline */
         .journey-section {
             margin-top: 80px;
             padding-top: 60px;
@@ -256,76 +256,130 @@
         .timeline-container {
             position: relative;
             margin: 60px 0;
+            padding: 0 20px;
         }
 
-        .timeline-line {
+        .track-section {
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .track-label {
+            font-size: 0.85rem;
+            color: #999;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        .track-timeline {
+            position: relative;
+            height: 80px;
+        }
+
+        .track-line {
             position: absolute;
-            top: 30px;
+            top: 20px;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(to right, #c9a961, #d4b574, #c9a961);
+            height: 3px;
+            background: linear-gradient(to right, #c9a961, #d4b574);
         }
 
-        .timeline-points {
-            display: flex;
-            justify-content: space-between;
+        .track-line-ongoing::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: -10px;
+            font-size: 1.5rem;
+            color: #c9a961;
+            font-weight: bold;
+        }
+
+        .track-line-secondary-ongoing {
+            background: linear-gradient(to right, transparent 0%, transparent 30%, #c9a961 30%, #d4b574 100%);
+        }
+
+        .track-line-secondary-ongoing::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: -10px;
+            font-size: 1.5rem;
+            color: #c9a961;
+            font-weight: bold;
+        }
+
+        .track-line-education {
+            background: #e5e5e5;
+        }
+
+        .track-points {
             position: relative;
-            z-index: 1;
+            height: 100%;
         }
 
-        .timeline-point {
-            flex: 1;
-            text-align: center;
-            position: relative;
+        .track-point {
+            position: absolute;
+            top: 12px;
         }
 
-        .timeline-dot {
-            width: 20px;
-            height: 20px;
+        .track-dot {
+            width: 16px;
+            height: 16px;
             background: #c9a961;
             border: 4px solid #fafafa;
             border-radius: 50%;
-            margin: 0 auto 20px;
             position: relative;
-            z-index: 2;
-            box-shadow: 0 0 0 4px rgba(201, 169, 97, 0.2);
+            left: -8px;
+            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.2);
         }
 
-        .timeline-year {
-            font-size: 1rem;
-            color: #c9a961;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .timeline-title {
-            font-size: 1.1rem;
-            color: #1a1a1a;
-            font-weight: 600;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .timeline-details {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .timeline-details li {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .timeline-details li:before {
-            content: "•";
+        .track-year {
             position: absolute;
-            left: 0;
+            top: 30px;
+            left: -35px;
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+            white-space: nowrap;
+            width: 80px;
+            text-align: center;
+        }
+
+        .track-info {
+            position: absolute;
+            top: 55px;
+            left: -50px;
+            font-size: 0.85rem;
+            color: #888;
+            line-height: 1.4;
+            white-space: nowrap;
+        }
+
+        .track-segment {
+            position: absolute;
+            top: -8px;
+            height: 22px;
+            background: rgba(201, 169, 97, 0.1);
+            border-radius: 11px;
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .track-segment-continuing {
+            background: rgba(201, 169, 97, 0.05);
+            border: 1px dashed rgba(201, 169, 97, 0.4);
+        }
+
+        .track-segment-label {
+            font-size: 0.85rem;
             color: #c9a961;
+            font-weight: 600;
+            padding: 0 15px;
+            white-space: nowrap;
         }
 
         .journey-conclusion {
@@ -349,37 +403,35 @@
             font-size: 1.3rem;
         }
 
-        /* Responsive timeline */
+        /* Responsive multi-track timeline */
         @media (max-width: 968px) {
-            .timeline-points {
-                flex-direction: column;
-                gap: 50px;
+            .track-section {
+                margin-bottom: 100px;
             }
 
-            .timeline-line {
-                top: 0;
-                left: 10px;
-                right: auto;
-                width: 2px;
-                height: 100%;
-                background: linear-gradient(to bottom, #c9a961, #d4b574, #c9a961);
+            .track-timeline {
+                height: 120px;
             }
 
-            .timeline-point {
-                display: flex;
-                align-items: flex-start;
-                text-align: left;
-                padding-left: 50px;
+            .track-year {
+                font-size: 0.75rem;
+                left: -30px;
+                width: 70px;
             }
 
-            .timeline-dot {
-                position: absolute;
-                left: 0;
-                margin: 0;
+            .track-info {
+                font-size: 0.7rem;
+                left: -45px;
             }
 
-            .timeline-content {
-                flex: 1;
+            .track-segment {
+                top: -6px;
+                height: 20px;
+            }
+
+            .track-segment-label {
+                font-size: 0.75rem;
+                padding: 0 10px;
             }
         }
 
@@ -821,53 +873,67 @@
                 <h3 class="journey-title">От ЛОР-хирургии к ринопластике</h3>
                 
                 <div class="timeline-container">
-                    <div class="timeline-line"></div>
-                    <div class="timeline-points">
-                        <div class="timeline-point">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-year">1998-2008</div>
-                                <div class="timeline-title">ЛОР-хирургия<br>Ординатура</div>
-                                <ul class="timeline-details">
-                                    <li>Первая специальность</li>
-                                    <li>Фундамент</li>
-                                </ul>
+                    <!-- Track 1: ЛОР-практика -->
+                    <div class="track-section">
+                        <div class="track-label">ЛОР-ПРАКТИКА</div>
+                        <div class="track-timeline">
+                            <div class="track-line track-line-ongoing"></div>
+                            <div class="track-points">
+                                <div class="track-point" style="left: 0%;">
+                                    <div class="track-dot"></div>
+                                    <div class="track-year">1998</div>
+                                </div>
+                                <div class="track-point" style="left: 10%;">
+                                    <div class="track-dot"></div>
+                                    <div class="track-year">2000</div>
+                                </div>
+                                <div class="track-point" style="left: 80%;">
+                                    <div class="track-dot"></div>
+                                    <div class="track-year">2025</div>
+                                </div>
+                            </div>
+                            <div class="track-segment" style="left: 10%; width: 70%;">
+                                <div class="track-segment-label">МОНИКИ: 25 лет</div>
+                            </div>
+                            <div class="track-segment track-segment-continuing" style="left: 80%; width: 20%;">
+                                <div class="track-segment-label">Частная практика</div>
                             </div>
                         </div>
-                        
-                        <div class="timeline-point">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-year">2008-2015</div>
-                                <div class="timeline-title">МОНИКИ:<br>10 лет практики</div>
-                                <ul class="timeline-details">
-                                    <li>2000+ операций</li>
-                                    <li>Сложнейшие случаи</li>
-                                </ul>
+                    </div>
+
+                    <!-- Track 2: Ринопластика -->
+                    <div class="track-section">
+                        <div class="track-label">РИНОПЛАСТИКА</div>
+                        <div class="track-timeline">
+                            <div class="track-line track-line-secondary-ongoing"></div>
+                            <div class="track-points">
+                                <div class="track-point" style="left: 30%;">
+                                    <div class="track-dot"></div>
+                                    <div class="track-year">2005</div>
+                                </div>
+                            </div>
+                            <div class="track-segment" style="left: 30%; width: 70%;">
+                                <div class="track-segment-label">20 лет опыта и продолжается</div>
                             </div>
                         </div>
-                        
-                        <div class="timeline-point">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-year">2015-2020</div>
-                                <div class="timeline-title">Вторая ординатура<br>Пластическая хирургия</div>
-                                <ul class="timeline-details">
-                                    <li>Специализация</li>
-                                    <li>Двойное образование</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-point">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-year">2020-наст. время</div>
-                                <div class="timeline-title">Фокус на<br>ринопластике</div>
-                                <ul class="timeline-details">
-                                    <li>100% нос</li>
-                                    <li>Форма + функция</li>
-                                </ul>
+                    </div>
+
+                    <!-- Track 3: Образование -->
+                    <div class="track-section">
+                        <div class="track-label">ОБРАЗОВАНИЕ</div>
+                        <div class="track-timeline">
+                            <div class="track-line track-line-education"></div>
+                            <div class="track-points">
+                                <div class="track-point" style="left: 0%;">
+                                    <div class="track-dot"></div>
+                                    <div class="track-year">1998-2002</div>
+                                    <div class="track-info">ЛОР-хирургия<br>(1-я ординатура)</div>
+                                </div>
+                                <div class="track-point" style="left: 75%;">
+                                    <div class="track-dot"></div>
+                                    <div class="track-year">2018-2020</div>
+                                    <div class="track-info">Пластическая хирургия<br>(2-я ординатура)</div>
+                                </div>
                             </div>
                         </div>
                     </div>
