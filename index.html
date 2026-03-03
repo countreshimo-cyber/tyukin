@@ -47,7 +47,7 @@
         header {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
-            padding: 120px 0 100px;
+            padding: 0 0 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -69,9 +69,88 @@
             z-index: 1;
         }
 
+        /* Top Navigation Menu */
+        .top-menu {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .top-menu .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-items {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .menu-items a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .menu-items a:hover {
+            color: #c9a961;
+        }
+
+        .menu-items a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #c9a961;
+            transition: width 0.3s ease;
+        }
+
+        .menu-items a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.85);
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -5px);
+        }
+
         header h1 {
             font-size: 3.5rem;
-            margin-bottom: 20px;
+            margin: 80px 0 20px;
             font-weight: 300;
             letter-spacing: 2px;
         }
@@ -793,12 +872,51 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu-items {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 250px;
+                height: 100vh;
+                background: rgba(26, 26, 26, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 70px 30px 30px;
+                gap: 0;
+                transition: right 0.3s ease;
+                z-index: 999;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+            }
+
+            .menu-items.active {
+                right: 0;
+            }
+
+            .menu-items a {
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 0.9rem;
+            }
+
+            .menu-items a::after {
+                display: none;
+            }
+
             header h1 {
                 font-size: 2.2rem;
+                margin-top: 60px;
             }
 
             header .subtitle {
                 font-size: 1.2rem;
+            }
+
+            header {
+                padding-bottom: 60px;
             }
 
             .about-content,
@@ -823,6 +941,25 @@
 <body>
     <!-- Hero Section -->
     <header>
+        <nav class="top-menu">
+            <div class="container">
+                <div class="menu-items">
+                    <a href="#about">О докторе</a>
+                    <a href="#services">Специализация</a>
+                    <a href="#results">Результаты</a>
+                    <a href="#training">Стажировки</a>
+                    <a href="#advantages">Преимущества</a>
+                    <a href="blog.html">Блог</a>
+                    <a href="pamyatka-pacienta.pdf" download>Памятка пациента</a>
+                    <a href="#contact">Контакты</a>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
         <div class="container">
             <h1>Валентин Тюкин</h1>
             <p class="subtitle">Пластический хирург, ЛОР-хирург</p>
@@ -1189,6 +1326,31 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const menuItems = document.querySelector('.menu-items');
+        
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            menuItems.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.menu-items a').forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                menuItems.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!menuItems.contains(event.target) && !menuToggle.contains(event.target)) {
+                menuToggle.classList.remove('active');
+                menuItems.classList.remove('active');
+            }
+        });
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
