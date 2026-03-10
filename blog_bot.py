@@ -8,8 +8,8 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
 # Configuration
-TELEGRAM_BOT_TOKEN = "8750405247:AAFkSAa4uss66oEhkvNjGLnun7bJfNAiA-Y"
-GITHUB_TOKEN = "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"
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 GITHUB_REPO = "countreshimo-cyber/tyukin"
 GITHUB_FILE_PATH = "blog-posts.json"
 
