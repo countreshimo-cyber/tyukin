@@ -48,7 +48,7 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* ===================== NAVBAR ===================== */
         header {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
@@ -74,13 +74,25 @@
             z-index: 1;
         }
 
-        /* Top Navigation Menu */
         .top-menu {
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             padding: 15px 0;
             position: relative;
             z-index: 10;
+            /* Navbar entry animation */
+            transform: translateY(-100%);
+            animation: navSlideDown 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .top-menu.scrolled {
+            background: rgba(10, 10, 10, 0.92);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+        }
+
+        @keyframes navSlideDown {
+            to { transform: translateY(0); }
         }
 
         .top-menu .container {
@@ -108,6 +120,7 @@
             color: #c9a961;
         }
 
+        /* Animated underline */
         .menu-items a::after {
             content: '';
             position: absolute;
@@ -116,7 +129,7 @@
             width: 0;
             height: 1px;
             background: #c9a961;
-            transition: width 0.3s ease;
+            transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .menu-items a:hover::after {
@@ -153,6 +166,50 @@
             transform: rotate(45deg) translate(-5px, -5px);
         }
 
+        /* ===================== HERO ANIMATIONS ===================== */
+        /* All hero elements start hidden, animate in on load */
+        .hero-subtitle,
+        .hero-h1,
+        .hero-desc,
+        .hero-cta {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero-subtitle  { animation: heroUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards; }
+        .hero-h1        { animation: heroUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards; }
+        .hero-desc      { animation: heroUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.72s forwards; }
+        .hero-cta       { animation: heroUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.90s forwards; }
+
+        @keyframes heroUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Doctor photo: fade + scale */
+        .about-image {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            height: 500px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c9a961;
+            font-size: 1.3rem;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                        filter 0.6s ease;
+            filter: grayscale(20%);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.04);
+            filter: grayscale(0%);
+        }
+
+        /* ===================== HEADER TYPOGRAPHY ===================== */
         header h1 {
             font-size: 3.5rem;
             margin: 80px 0 20px;
@@ -186,17 +243,19 @@
             font-weight: 600;
             font-size: 1rem;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        background 0.3s ease;
             text-transform: uppercase;
         }
 
         .cta-button:hover {
             background: #d4b574;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(201, 169, 97, 0.38);
         }
 
-        /* Sections */
+        /* ===================== SECTIONS ===================== */
         section {
             padding: 100px 0;
         }
@@ -230,14 +289,41 @@
             font-weight: 400;
         }
 
-        /* Before/After Gallery Section */
+        /* ===================== SCROLL REVEAL BASE ===================== */
+        .reveal,
+        .reveal-left,
+        .reveal-right {
+            opacity: 0;
+            transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal          { transform: translateY(40px); }
+        .reveal-left     { transform: translateX(-50px); }
+        .reveal-right    { transform: translateX(50px); }
+
+        .reveal.visible,
+        .reveal-left.visible,
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /* Cascade delays */
+        .delay-1 { transition-delay: 0.08s; }
+        .delay-2 { transition-delay: 0.16s; }
+        .delay-3 { transition-delay: 0.24s; }
+        .delay-4 { transition-delay: 0.32s; }
+        .delay-5 { transition-delay: 0.42s; }
+
+        /* ===================== BEFORE/AFTER ===================== */
         .before-after-section {
             background: #1a1a1a;
             color: white;
         }
 
         .before-after-section h2 {
-            color: #1a1a1a;
+            color: #ffffff;
         }
 
         .before-after-section h2::after {
@@ -255,11 +341,13 @@
             background: #2d2d2d;
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .before-after-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.4);
         }
 
         .image-comparison {
@@ -278,6 +366,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .before-after-card:hover .image-comparison img {
+            transform: scale(1.04);
         }
 
         .before-after-info {
@@ -298,7 +391,7 @@
             font-size: 0.95rem;
         }
 
-        /* About Section */
+        /* ===================== ABOUT ===================== */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -334,18 +427,7 @@
             font-size: 1.3rem;
         }
 
-        .about-image {
-            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
-            height: 500px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #c9a961;
-            font-size: 1.3rem;
-        }
-
-        /* Professional Journey Multi-Track Timeline */
+        /* ===================== JOURNEY TIMELINE ===================== */
         .journey-section {
             margin-top: 80px;
             padding-top: 60px;
@@ -510,39 +592,16 @@
             font-size: 1.3rem;
         }
 
-        /* Responsive multi-track timeline */
         @media (max-width: 968px) {
-            .track-section {
-                margin-bottom: 100px;
-            }
-
-            .track-timeline {
-                height: 120px;
-            }
-
-            .track-year {
-                font-size: 0.75rem;
-                left: -30px;
-                width: 70px;
-            }
-
-            .track-info {
-                font-size: 0.7rem;
-                left: -45px;
-            }
-
-            .track-segment {
-                top: -6px;
-                height: 20px;
-            }
-
-            .track-segment-label {
-                font-size: 0.75rem;
-                padding: 0 10px;
-            }
+            .track-section { margin-bottom: 100px; }
+            .track-timeline { height: 120px; }
+            .track-year { font-size: 0.75rem; left: -30px; width: 70px; }
+            .track-info { font-size: 0.7rem; left: -45px; }
+            .track-segment { top: -6px; height: 20px; }
+            .track-segment-label { font-size: 0.75rem; padding: 0 10px; }
         }
 
-        /* Services Grid */
+        /* ===================== SERVICES ===================== */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -555,12 +614,15 @@
             padding: 40px 30px;
             border-radius: 4px;
             border: 1px solid #e5e5e5;
-            transition: all 0.3s ease;
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 0.3s ease;
         }
 
         .service-card:hover {
             border-color: #c9a961;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.10);
         }
 
         .service-card h3 {
@@ -575,7 +637,7 @@
             line-height: 1.8;
         }
 
-        /* Training Gallery */
+        /* ===================== TRAINING ===================== */
         .training-gallery {
             margin-top: 60px;
             overflow-x: auto;
@@ -584,23 +646,10 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        .training-gallery::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .training-gallery::-webkit-scrollbar-track {
-            background: #f0f0f0;
-            border-radius: 4px;
-        }
-
-        .training-gallery::-webkit-scrollbar-thumb {
-            background: #c9a961;
-            border-radius: 4px;
-        }
-
-        .training-gallery::-webkit-scrollbar-thumb:hover {
-            background: #b38f51;
-        }
+        .training-gallery::-webkit-scrollbar { height: 8px; }
+        .training-gallery::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 4px; }
+        .training-gallery::-webkit-scrollbar-thumb { background: #c9a961; border-radius: 4px; }
+        .training-gallery::-webkit-scrollbar-thumb:hover { background: #b38f51; }
 
         .training-scroll {
             display: flex;
@@ -615,12 +664,13 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .training-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.18);
         }
 
         .training-image {
@@ -634,6 +684,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .training-card:hover .training-image img {
+            transform: scale(1.05);
         }
 
         .training-info {
@@ -648,7 +703,7 @@
             line-height: 1.5;
         }
 
-        /* Advantages */
+        /* ===================== ADVANTAGES ===================== */
         .advantages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -672,6 +727,11 @@
             margin: 0 auto 25px;
             font-size: 2.2rem;
             color: white;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .advantage-item:hover .advantage-icon {
+            transform: scale(1.12) rotate(6deg);
         }
 
         .advantage-item h3 {
@@ -685,7 +745,7 @@
             line-height: 1.7;
         }
 
-        /* Process */
+        /* ===================== PROCESS ===================== */
         .process-timeline {
             max-width: 900px;
             margin: 60px auto;
@@ -710,6 +770,11 @@
             font-size: 2rem;
             flex-shrink: 0;
             margin-right: 30px;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .process-step:hover .step-number {
+            transform: scale(1.12) rotate(5deg);
         }
 
         .step-content h3 {
@@ -723,7 +788,7 @@
             line-height: 1.8;
         }
 
-        /* Reviews */
+        /* ===================== REVIEWS ===================== */
         .reviews-container {
             max-width: 1000px;
             margin: 60px auto;
@@ -735,6 +800,13 @@
             border-radius: 4px;
             border: 1px solid #e5e5e5;
             margin-bottom: 30px;
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .review-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.08);
         }
 
         .review-header {
@@ -760,7 +832,7 @@
             line-height: 1.8;
         }
 
-        /* Contact Section */
+        /* ===================== CONTACT ===================== */
         .contact-section {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
@@ -795,12 +867,15 @@
             font-weight: 600;
             font-size: 1.3rem;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        background 0.3s ease;
         }
 
         .phone-button:hover {
             background: #d4b574;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(201, 169, 97, 0.35);
         }
 
         .taplink-button {
@@ -814,13 +889,18 @@
             font-weight: 600;
             font-size: 1.1rem;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        background 0.3s ease,
+                        color 0.3s ease;
             text-transform: uppercase;
         }
 
         .taplink-button:hover {
             background: #c9a961;
             color: #1a1a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(201, 169, 97, 0.3);
         }
 
         .contact-form h3 {
@@ -854,16 +934,20 @@
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        background 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .contact-form button:hover {
             background: #d4b574;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.3);
         }
 
-        /* Footer */
+        /* ===================== FOOTER ===================== */
         footer {
             background: #0d0d0d;
             color: #888;
@@ -871,15 +955,11 @@
             padding: 40px 0;
         }
 
-        footer p {
-            margin: 5px 0;
-        }
+        footer p { margin: 5px 0; }
 
-        /* Responsive */
+        /* ===================== RESPONSIVE ===================== */
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
+            .menu-toggle { display: block; }
 
             .menu-items {
                 position: fixed;
@@ -897,9 +977,7 @@
                 box-shadow: -5px 0 20px rgba(0,0,0,0.5);
             }
 
-            .menu-items.active {
-                right: 0;
-            }
+            .menu-items.active { right: 0; }
 
             .menu-items a {
                 padding: 15px 0;
@@ -907,38 +985,24 @@
                 font-size: 0.9rem;
             }
 
-            .menu-items a::after {
-                display: none;
-            }
+            .menu-items a::after { display: none; }
 
-            header h1 {
-                font-size: 2.2rem;
-                margin-top: 60px;
-            }
-
-            header .subtitle {
-                font-size: 1.2rem;
-            }
-
-            header {
-                padding-bottom: 60px;
-            }
+            header h1 { font-size: 2.2rem; margin-top: 60px; }
+            header .subtitle { font-size: 1.2rem; }
+            header { padding-bottom: 60px; }
 
             .about-content,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
+            .contact-grid { grid-template-columns: 1fr; }
 
-            .before-after-grid {
-                grid-template-columns: 1fr;
-            }
+            .before-after-grid { grid-template-columns: 1fr; }
 
-            h2 {
-                font-size: 2rem;
-            }
+            h2 { font-size: 2rem; }
+            section { padding: 60px 0; }
 
-            section {
-                padding: 60px 0;
+            /* On mobile, only use reveal (no left/right) */
+            .reveal-left,
+            .reveal-right {
+                transform: translateY(30px);
             }
         }
     </style>
@@ -946,7 +1010,7 @@
 <body>
     <!-- Hero Section -->
     <header>
-        <nav class="top-menu">
+        <nav class="top-menu" id="topMenu">
             <div class="container">
                 <div class="menu-items">
                     <a href="#about">О докторе</a>
@@ -966,20 +1030,20 @@
             </div>
         </nav>
         <div class="container">
-            <h1>Валентин Тюкин</h1>
-            <p class="subtitle">Пластический хирург, ЛОР-хирург</p>
-            <p>Ринопластика и риносептопластика в Ростове-на-Дону<br>
+            <h1 class="hero-h1">Валентин Тюкин</h1>
+            <p class="subtitle hero-subtitle">Пластический хирург, ЛОР-хирург</p>
+            <p class="hero-desc">Ринопластика и риносептопластика в Ростове-на-Дону<br>
             Стаж более 26 лет • Веду частный прием</p>
-            <a href="#contact" class="cta-button">Записаться на консультацию</a>
+            <a href="#contact" class="cta-button hero-cta">Записаться на консультацию</a>
         </div>
     </header>
 
     <!-- Before/After Gallery -->
     <section id="results" class="before-after-section">
         <div class="container">
-            <h2>Результаты операций</h2>
+            <h2 class="reveal">Результаты операций</h2>
             <div class="before-after-grid">
-                <div class="before-after-card">
+                <div class="before-after-card reveal delay-1">
                     <div class="image-comparison">
                         <img src="images/before-after-1.jpg" alt="Ринопластика до и после">
                     </div>
@@ -988,7 +1052,7 @@
                         <p>Коррекция формы носа с восстановлением гармоничных пропорций</p>
                     </div>
                 </div>
-                <div class="before-after-card">
+                <div class="before-after-card reveal delay-2">
                     <div class="image-comparison">
                         <img src="images/before-after-2.jpg" alt="Риносептопластика до и после">
                     </div>
@@ -997,7 +1061,7 @@
                         <p>Эстетическая коррекция + восстановление носового дыхания</p>
                     </div>
                 </div>
-                <div class="before-after-card">
+                <div class="before-after-card reveal delay-3">
                     <div class="image-comparison">
                         <img src="images/before-after-3.jpg" alt="Вторичная ринопластика до и после">
                     </div>
@@ -1013,9 +1077,9 @@
     <!-- About Section -->
     <section id="about">
         <div class="container">
-            <h2>О докторе</h2>
+            <h2 class="reveal">О докторе</h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text reveal-left">
                     <h3>Валентин Юрьевич Тюкин</h3>
                     <p>Я пластический хирург и ЛОР-хирург с более чем 26-летним стажем работы. Специализируюсь на функциональной и эстетической ринопластике, применяя современные малоинвазивные методики.</p>
                     <p>Веду частный прием в Ростове-на-Дону, где провожу операции на носе любой сложности, включая первичные, вторичные и реконструктивные вмешательства.</p>
@@ -1028,13 +1092,13 @@
                         <li>Стаж более 26 лет</li>
                     </ul>
                 </div>
-                <div class="about-image" style="background: none; overflow: hidden;">
+                <div class="about-image reveal-right" style="background: none; overflow: hidden;">
                     <img src="images/doctor-photo.jpg" alt="Валентин Тюкин" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
                 </div>
             </div>
 
             <!-- Professional Journey Timeline -->
-            <div class="journey-section">
+            <div class="journey-section reveal">
                 <h3 class="journey-title">От ЛОР-хирургии к ринопластике</h3>
                 
                 <div class="timeline-container">
@@ -1115,29 +1179,29 @@
     <!-- Services Section -->
     <section id="services">
         <div class="container">
-            <h2>Специализация</h2>
+            <h2 class="reveal">Специализация</h2>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card reveal delay-1">
                     <h3>Ринопластика</h3>
                     <p>Эстетическая коррекция формы носа для достижения гармоничных пропорций лица. Индивидуальный подход к каждому пациенту с учетом анатомических особенностей и пожеланий.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal delay-2">
                     <h3>Риносептопластика</h3>
                     <p>Комплексная операция, сочетающая эстетическую коррекцию с восстановлением носового дыхания. Решаю одновременно функциональные и эстетические задачи.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal delay-3">
                     <h3>Пьезохирургия</h3>
                     <p>Инновационная ультразвуковая методика, обеспечивающая минимальную травматичность тканей, высокую точность и быстрое восстановление после операции.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal delay-1">
                     <h3>Септопластика</h3>
                     <p>Хирургическая коррекция искривленной носовой перегородки для восстановления полноценного носового дыхания и профилактики осложнений.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal delay-2">
                     <h3>Вторичная ринопластика</h3>
                     <p>Коррекция неудовлетворительных результатов предыдущих операций. Требует высокой квалификации и опыта хирурга.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal delay-3">
                     <h3>Эндоскопические операции</h3>
                     <p>Малоинвазивные вмешательства с использованием эндоскопического оборудования: лечение хронического синусита, удаление полипов и других новообразований.</p>
                 </div>
@@ -1148,8 +1212,8 @@
     <!-- Training Section -->
     <section id="training">
         <div class="container">
-            <h2>Стажировки</h2>
-            <div class="training-gallery">
+            <h2 class="reveal">Стажировки</h2>
+            <div class="training-gallery reveal">
                 <div class="training-scroll">
                     <div class="training-card">
                         <div class="training-image">
@@ -1199,24 +1263,24 @@
     <!-- Advantages Section -->
     <section id="advantages">
         <div class="container">
-            <h2>Преимущества</h2>
+            <h2 class="reveal">Преимущества</h2>
             <div class="advantages-grid">
-                <div class="advantage-item">
+                <div class="advantage-item reveal delay-1">
                     <div class="advantage-icon">⚕️</div>
                     <h3>Опыт 26+ лет</h3>
                     <p>Более четверти века практики в пластической хирургии и ЛОР-хирургии</p>
                 </div>
-                <div class="advantage-item">
+                <div class="advantage-item reveal delay-2">
                     <div class="advantage-icon">🔬</div>
                     <h3>Современные технологии</h3>
                     <p>Применяю пьезохирургию и эндоскопические малоинвазивные методики</p>
                 </div>
-                <div class="advantage-item">
+                <div class="advantage-item reveal delay-3">
                     <div class="advantage-icon">🎯</div>
                     <h3>Комплексный подход</h3>
                     <p>Решаю эстетические и функциональные задачи одновременно</p>
                 </div>
-                <div class="advantage-item">
+                <div class="advantage-item reveal delay-4">
                     <div class="advantage-icon">💎</div>
                     <h3>Быстрое восстановление</h3>
                     <p>Малоинвазивные техники для минимизации реабилитационного периода</p>
@@ -1228,37 +1292,37 @@
     <!-- Process Section -->
     <section id="process">
         <div class="container">
-            <h2>Как проходит операция</h2>
+            <h2 class="reveal">Как проходит операция</h2>
             <div class="process-timeline">
-                <div class="process-step">
+                <div class="process-step reveal delay-1">
                     <div class="step-number">💬</div>
                     <div class="step-content">
                         <h3>Консультация</h3>
                         <p>Первичный осмотр, детальное обсуждение ваших пожеланий, 3D-моделирование будущего результата, назначение необходимых обследований и анализов.</p>
                     </div>
                 </div>
-                <div class="process-step">
+                <div class="process-step reveal delay-2">
                     <div class="step-number">📋</div>
                     <div class="step-content">
                         <h3>Подготовка</h3>
                         <p>Сдача анализов, консультация анестезиолога-реаниматолога, получение подробных рекомендаций по подготовке к операции.</p>
                     </div>
                 </div>
-                <div class="process-step">
+                <div class="process-step reveal delay-3">
                     <div class="step-number">✂️</div>
                     <div class="step-content">
                         <h3>Операция</h3>
                         <p>Провожу ринопластику под общей анестезией с применением современных методик и оборудования. Длительность операции 1,5-3 часа в зависимости от объема.</p>
                     </div>
                 </div>
-                <div class="process-step">
+                <div class="process-step reveal delay-4">
                     <div class="step-number">🏥</div>
                     <div class="step-content">
                         <h3>Восстановление</h3>
                         <p>Наблюдение в клинике, снятие фиксирующей гипсовой повязки через 7-10 дней, постепенное схождение отеков. Окончательный результат формируется через 6-12 месяцев.</p>
                     </div>
                 </div>
-                <div class="process-step">
+                <div class="process-step reveal delay-5">
                     <div class="step-number">👁️</div>
                     <div class="step-content">
                         <h3>Наблюдение</h3>
@@ -1272,23 +1336,23 @@
     <!-- Reviews Section -->
     <section id="reviews">
         <div class="container">
-            <h2>Отзывы пациентов</h2>
+            <h2 class="reveal">Отзывы пациентов</h2>
             <div class="reviews-container">
-                <div class="review-card">
+                <div class="review-card reveal delay-1">
                     <div class="review-header">
                         <span class="review-author">Анна</span>
                         <span class="review-stars">★★★★★</span>
                     </div>
                     <p>Валентин Юрьевич - настоящий профессионал своего дела! Делала ринопластику, результат превзошел все ожидания. Очень внимательный доктор, все подробно объяснил, показал на 3D-модели как будет выглядеть результат. Восстановление прошло легко, без осложнений. Спасибо огромное за мой новый красивый нос!</p>
                 </div>
-                <div class="review-card">
+                <div class="review-card reveal delay-2">
                     <div class="review-header">
                         <span class="review-author">Дмитрий</span>
                         <span class="review-stars">★★★★★</span>
                     </div>
                     <p>Долго не решался на операцию из-за проблем с дыханием и искривленной перегородки. Валентин Юрьевич сделал риносептопластику - теперь не только дышу свободно, но и нос выглядит намного лучше! Операция прошла без осложнений, быстро восстановился. Очень рекомендую этого доктора!</p>
                 </div>
-                <div class="review-card">
+                <div class="review-card reveal delay-3">
                     <div class="review-header">
                         <span class="review-author">Елена</span>
                         <span class="review-stars">★★★★★</span>
@@ -1302,13 +1366,13 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2>Контакты и запись</h2>
+            <h2 class="reveal">Контакты и запись</h2>
             <div class="contact-grid">
-                <div class="contact-cta">
+                <div class="contact-cta reveal-left">
                     <a href="tel:+79166979684" class="phone-button">+7 916 697-96-84</a>
                     <a href="https://taplink.cc/dr_tyukin" target="_blank" class="taplink-button">Перейти в Taplink</a>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form reveal-right">
                     <h3>Записаться на консультацию</h3>
                     <form>
                         <input type="text" placeholder="Ваше имя" required>
@@ -1331,7 +1395,7 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // ===================== MOBILE MENU =====================
         const menuToggle = document.getElementById('menuToggle');
         const menuItems = document.querySelector('.menu-items');
         
@@ -1340,7 +1404,6 @@
             menuItems.classList.toggle('active');
         });
 
-        // Close menu when clicking on a link
         document.querySelectorAll('.menu-items a').forEach(link => {
             link.addEventListener('click', function() {
                 menuToggle.classList.remove('active');
@@ -1348,7 +1411,6 @@
             });
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             if (!menuItems.contains(event.target) && !menuToggle.contains(event.target)) {
                 menuToggle.classList.remove('active');
@@ -1356,65 +1418,76 @@
             }
         });
 
-        // Smooth scrolling for anchor links
+        // ===================== SMOOTH SCROLL =====================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Telegram Bot Configuration
+        // ===================== NAVBAR SCROLL EFFECT =====================
+        const topMenu = document.getElementById('topMenu');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                topMenu.classList.add('scrolled');
+            } else {
+                topMenu.classList.remove('scrolled');
+            }
+        }, { passive: true });
+
+        // ===================== INTERSECTION OBSERVER — SCROLL REVEAL =====================
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Once revealed, stop observing
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // ===================== TELEGRAM BOT FORM =====================
         const TELEGRAM_BOT_TOKEN = '8564588844:AAHOhvh5jfRtJvQKAt_VFU-6e374CekxcsY';
         const TELEGRAM_CHAT_ID = '157563909';
 
-        // Form submission with Telegram integration
         document.querySelector('form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Get form data
-            const name = this.querySelector('input[type="text"]').value;
-            const phone = this.querySelector('input[type="tel"]').value;
-            const email = this.querySelector('input[type="email"]').value;
+            const name    = this.querySelector('input[type="text"]').value;
+            const phone   = this.querySelector('input[type="tel"]').value;
+            const email   = this.querySelector('input[type="email"]').value;
             const comment = this.querySelector('textarea').value;
             
-            // Get current date and time
             const now = new Date();
             const dateTime = now.toLocaleString('ru-RU', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
+                day: '2-digit', month: '2-digit', year: 'numeric',
+                hour: '2-digit', minute: '2-digit'
             });
             
-            // Create message for Telegram
             let message = '🔔 Новая заявка с сайта!\n\n';
             message += `👤 Имя: ${name}\n`;
             message += `📞 Телефон: ${phone}\n`;
-            if (email) {
-                message += `📧 Email: ${email}\n`;
-            }
-            if (comment) {
-                message += `💬 Комментарий: ${comment}\n`;
-            }
+            if (email)   message += `📧 Email: ${email}\n`;
+            if (comment) message += `💬 Комментарий: ${comment}\n`;
             message += `\n🕐 Время: ${dateTime}`;
             
-            // Send to Telegram
             const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
             
             try {
                 const response = await fetch(telegramUrl, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         chat_id: TELEGRAM_CHAT_ID,
                         text: message,
