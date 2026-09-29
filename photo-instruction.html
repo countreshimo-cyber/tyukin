@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инструкция по фотографированию перед ринопластикой — Валентин Тюкин</title>
+    <meta name="description" content="Как правильно сфотографироваться перед консультацией по ринопластике. Пошаговая инструкция от доктора Валентина Тюкина.">
+    <meta name="robots" content="index, follow">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.7;
+            color: #2d2d2d;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ── Top menu ── */
+        .top-menu {
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: relative;
+            z-index: 10;
+        }
+        .top-menu .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu-items { display: flex; gap: 22px; flex-wrap: wrap; }
+        .menu-items a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 400;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .menu-items a:hover { color: #c9a961; }
+        .menu-items a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 1px;
+            background: #c9a961;
+            transition: width 0.3s;
+        }
+        .menu-items a:hover::after { width: 100%; }
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 22px; height: 2px;
+            background: rgba(255,255,255,0.85);
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        /* ── Header ── */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 0 0 60px;
+        }
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin: 60px 0 12px;
+            text-align: center;
+        }
+        header .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.75);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+        .gold-line {
+            width: 50px; height: 2px;
+            background: #c9a961;
+            margin: 0 auto 30px;
+        }
+        .back-btn {
+            display: inline-block;
+            color: #c9a961;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 10px 24px;
+            border: 1px solid #c9a961;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .back-btn:hover { background: #c9a961; color: #1a1a1a; }
+        .header-btns { text-align: center; }
+
+        /* ── Intro block ── */
+        .intro {
+            background: white;
+            padding: 60px 0 50px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .intro-card {
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 30px 25px;
+            text-align: center;
+        }
+        .intro-card .num {
+            width: 48px; height: 48px;
+            background: #c9a961;
+            color: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0 auto 18px;
+        }
+        .intro-card h3 {
+            font-size: 1.05rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .intro-card p { font-size: 0.9rem; color: #666; }
+
+        /* ── Section title ── */
+        .section-title {
+            text-align: center;
+            font-size: 1.9rem;
+            font-weight: 300;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+        .section-sub {
+            text-align: center;
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 50px;
+        }
+
+        /* ── Technical requirements ── */
+        .tech-section {
+            padding: 70px 0;
+            background: #f5f5f5;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        .tech-card {
+            background: white;
+            border-radius: 8px;
+            padding: 35px 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .tech-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .tech-icon {
+            width: 44px; height: 44px;
+            background: rgba(201,169,97,0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        .tech-card h3 {
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        .tech-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .tech-card ul li {
+            padding: 7px 0;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 0.92rem;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .tech-card ul li:last-child { border-bottom: none; }
+        .tech-card ul li::before {
+            content: '✓';
+            color: #c9a961;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .tech-card.warning { border-left: 3px solid #e8a0a0; }
+        .tech-card.warning ul li::before {
+            content: '✗';
+            color: #e8a0a0;
+        }
+
+        /* ── Angles section ── */
+        .angles-section {
+            padding: 70px 0;
+            background: white;
+        }
+        .angle-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 80px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .angle-step:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .angle-step.reverse { direction: rtl; }
+        .angle-step.reverse > * { direction: ltr; }
+
+        .angle-photo {
+            aspect-ratio: 3/4;
+            background: #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        .angle-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e5e5e5 100%);
+            color: #bbb;
+            gap: 12px;
+        }
+        .photo-placeholder .icon { font-size: 3rem; }
+        .photo-placeholder .label { font-size: 0.85rem; }
+
+        .step-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+        .step-number {
+            width: 36px; height: 36px;
+            background: #c9a961;
+            color: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .step-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #c9a961;
+            font-weight: 600;
+        }
+        .angle-text h2 {
+            font-size: 1.7rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        .angle-text p {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+        .angle-tips {
+            background: #fafafa;
+            border-left: 3px solid #c9a961;
+            padding: 15px 18px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 18px;
+        }
+        .angle-tips p {
+            font-size: 0.88rem;
+            color: #666;
+            margin: 0;
+        }
+        .angle-tips strong { color: #c9a961; }
+
+        /* ── Mistakes section ── */
+        .mistakes-section {
+            padding: 70px 0;
+            background: #1a1a1a;
+            color: white;
+        }
+        .mistakes-section .section-title { color: white; }
+        .mistakes-section .section-sub { color: rgba(255,255,255,0.6); }
+        .mistakes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .mistake-card {
+            background: #2d2d2d;
+            border-radius: 8px;
+            padding: 28px;
+        }
+        .mistake-icon { font-size: 2rem; margin-bottom: 14px; }
+        .mistake-card h4 {
+            font-size: 1rem;
+            color: #e8a0a0;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .mistake-card p {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.65);
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        .cta-section p {
+            color: #666;
+            max-width: 500px;
+            margin: 0 auto 35px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: #c9a961;
+            color: #1a1a1a;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: background 0.3s;
+        }
+        .cta-btn:hover { background: #d4b574; }
+
+        /* ── Footer ── */
+        footer {
+            background: #1a1a1a;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 40px 0;
+        }
+        footer p { margin: 5px 0; font-size: 0.9rem; }
+        .footer-back {
+            display: inline-block;
+            color: #c9a961;
+            text-decoration: none;
+            border: 1px solid #c9a961;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            transition: all 0.3s;
+        }
+        .footer-back:hover { background: #c9a961; color: #1a1a1a; }
+
+        /* ── Mobile ── */
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .menu-items {
+                position: fixed;
+                top: 0; right: -100%;
+                width: 260px; height: 100vh;
+                background: rgba(26,26,26,0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 70px 30px 30px;
+                gap: 0;
+                transition: right 0.3s;
+                z-index: 999;
+            }
+            .menu-items.active { right: 0; }
+            .menu-items a {
+                padding: 14px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                font-size: 0.9rem;
+            }
+            .menu-items a::after { display: none; }
+
+            header h1 { font-size: 1.6rem; margin-top: 40px; }
+            .intro-grid { grid-template-columns: 1fr; }
+            .tech-grid { grid-template-columns: 1fr; }
+            .angle-step {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin-bottom: 50px;
+                padding-bottom: 50px;
+            }
+            .angle-step.reverse { direction: ltr; }
+            .mistakes-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <nav class="top-menu">
+        <div class="container">
+            <div class="menu-items" id="menuItems">
+                <a href="index.html#about">О докторе</a>
+                <a href="index.html#services">Специализация</a>
+                <a href="index.html#results">Результаты</a>
+                <a href="index.html#training">Стажировки</a>
+                <a href="index.html#advantages">Преимущества</a>
+                <a href="blog.html">Блог</a>
+                <a href="photo-instruction.html">Фото для консультации</a>
+                <a href="pamyatka-pacienta.pdf" download>Памятка пациента</a>
+                <a href="index.html#contact">Контакты</a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Инструкция по фотографированию</h1>
+        <p class="subtitle">Как правильно сфотографироваться перед консультацией по ринопластике</p>
+        <div class="gold-line"></div>
+        <div class="header-btns">
+            <a href="index.html" class="back-btn">← На главную</a>
+        </div>
+    </div>
+</header>
+
+<!-- Intro -->
+<section class="intro">
+    <div class="container">
+        <h2 class="section-title">Зачем нужны фотографии</h2>
+        <p class="section-sub">Качественные снимки помогают мне подготовиться к консультации и дать вам точный ответ ещё до встречи</p>
+        <div class="intro-grid">
+            <div class="intro-card">
+                <div class="num">1</div>
+                <h3>Оценка анатомии</h3>
+                <p>По фотографиям с разных ракурсов я вижу особенности строения носа, пропорции лица и возможные ограничения для операции</p>
+            </div>
+            <div class="intro-card">
+                <div class="num">2</div>
+                <h3>Предварительное планирование</h3>
+                <p>До консультации я уже понимаю, какие техники подойдут, и могу сразу обсудить конкретные варианты</p>
+            </div>
+            <div class="intro-card">
+                <div class="num">3</div>
+                <h3>Экономия времени</h3>
+                <p>На консультации мы не тратим время на базовую оценку — сразу переходим к вашим целям и ожиданиям</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technical requirements -->
+<section class="tech-section">
+    <div class="container">
+        <h2 class="section-title">Технические требования</h2>
+        <p class="section-sub">Перед съёмкой убедитесь, что всё настроено правильно</p>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-card-header">
+                    <div class="tech-icon">🖼️</div>
+                    <h3>Фон</h3>
+                </div>
+                <ul>
+                    <li>Однотонный — серый, бежевый или белый</li>
+                    <li>Без рисунков, текстур и узоров</li>
+                    <li>Расстояние до фона — не более 0,5 м</li>
+                    <li>Стена, дверь или простыня подойдут</li>
+                </ul>
+            </div>
+            <div class="tech-card">
+                <div class="tech-card-header">
+                    <div class="tech-icon">💡</div>
+                    <h3>Освещение</h3>
+                </div>
+                <ul>
+                    <li>Естественный дневной свет (у окна)</li>
+                    <li>Или мягкий рассеянный свет лампы</li>
+                    <li>Свет направлен спереди, не сзади</li>
+                    <li>Без резких теней и бликов на носу</li>
+                </ul>
+            </div>
+            <div class="tech-card">
+                <div class="tech-card-header">
+                    <div class="tech-icon">📷</div>
+                    <h3>Камера и расстояние</h3>
+                </div>
+                <ul>
+                    <li>Расстояние от камеры — 1,5–2 метра</li>
+                    <li>Камера строго на уровне лица</li>
+                    <li>Без широкоугольного объектива</li>
+                    <li>Основная камера смартфона (не фронтальная)</li>
+                </ul>
+            </div>
+            <div class="tech-card">
+                <div class="tech-card-header">
+                    <div class="tech-icon">👤</div>
+                    <h3>Внешний вид</h3>
+                </div>
+                <ul>
+                    <li>Волосы убраны от лица (собраны или заколоты)</li>
+                    <li>Без макияжа — особенно на носу</li>
+                    <li>Нейтральное выражение лица</li>
+                    <li>Одежда с вырезом или без воротника</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Shooting angles -->
+<section class="angles-section">
+    <div class="container">
+        <h2 class="section-title">Необходимые ракурсы</h2>
+        <p class="section-sub">7 обязательных снимков — каждый даёт важную информацию об анатомии носа</p>
+
+        <!-- Step 1 -->
+        <div class="angle-step">
+            <div class="angle-photo">
+                <img src="images/photo-guide-1.jpg" alt="Анфас — вид спереди" onerror="this.parentNode.innerHTML='<div class=\'photo-placeholder\'><div class=\'icon\'>📸</div><div class=\'label\'>Фото 1: Анфас</div></div>'">
+            </div>
+            <div class="angle-text">
+                <div class="step-badge">
+                    <div class="step-number">1</div>
+                    <span class="step-label">Ракурс первый</span>
+                </div>
+                <h2>Анфас — вид спереди</h2>
+                <p>Смотрите прямо в объектив. Голова ровно, без наклона и поворота. Подбородок параллелен полу.</p>
+                <p>Этот снимок показывает симметрию носа, ширину спинки и соотношение носа с другими чертами лица.</p>
+                <div class="angle-tips">
+                    <p><strong>Совет:</strong> Попросите кого-то сфотографировать вас — на штативе или в руках держа телефон на уровне вашего лица. Автоспуск тоже подойдёт.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="angle-step reverse">
+            <div class="angle-photo">
+                <img src="images/photo-guide-2.jpg" alt="Профиль левый" onerror="this.parentNode.innerHTML='<div class=\'photo-placeholder\'><div class=\'icon\'>📸</div><div class=\'label\'>Фото 2: Профиль левый</div></div>'">
+            </div>
+            <div class="angle-text">
+                <div class="step-badge">
+                    <div class="step-number">2</div>
+                    <span class="step-label">Ракурс второй</span>
+                </div>
+                <h2>Профиль левый</h2>
+                <p>Повернитесь строго влево — камера должна видеть только левую сторону лица. Ухо полностью в кадре.</p>
+                <p>На профиле хорошо видна горбинка, угол кончика носа, соотношение носа и губ, длина и проекция.</p>
+                <div class="angle-tips">
+                    <p><strong>Совет:</strong> Убедитесь, что противоположное ухо не видно в кадре — значит поворот достаточный.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="angle-step">
+            <div class="angle-photo">
+                <img src="images/photo-guide-3.jpg" alt="Профиль правый" onerror="this.parentNode.innerHTML='<div class=\'photo-placeholder\'><div class=\'icon\'>📸</div><div class=\'label\'>Фото 3: Профиль правый</div></div>'">
+            </div>
+            <div class="angle-text">
+                <div class="step-badge">
+                    <div class="step-number">3</div>
+                    <span class="step-label">Ракурс третий</span>
+                </div>
+                <h2>Профиль правый</h2>
+                <p>То же самое, но теперь поворот вправо. Важно сделать оба профиля — нос редко бывает симметричным.</p>
+                <p>Сравнение двух профилей позволяет выявить искривление перегородки, асимметрию и разницу в форме ноздрей.</p>
+                <div class="angle-tips">
+                    <p><strong>Совет:</strong> Сделайте несколько снимков с каждой стороны и выберите тот, где голова не наклонена.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="angle-step reverse">
+            <div class="angle-photo">
+                <img src="images/photo-guide-4.jpg" alt="Полупрофиль левый 45°" onerror="this.parentNode.innerHTML='<div class=\'photo-placeholder\'><div class=\'icon\'>📸</div><div class=\'label\'>Фото 4: Полупрофиль левый</div></div>'">
+            </div>
+            <div class="angle-text">
+                <div class="step-badge">
+                    <div class="step-number">4</div>
+                    <span class="step-label">Ракурс четвёртый</span>
+                </div>
+                <h2>Полупрофиль левый (45°)</h2>
+                <p>Поверните голову влево примерно на 45 градусов. Должны быть видны оба глаза, но правый немного больше.</p>
+                <p>Три четверти — один из самых информативных ракурсов. Показывает объём и форму носа в натуральном повороте головы.</p>
+                <div class="angle-tips">
+                    <p><strong>Совет:</strong> Ориентир — кончик носа должен находиться примерно на линии щеки с противоположной стороны.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="angle-step">
+            <div class="angle-photo">
+                <img src="images/photo-guide-5.jpg" alt="Полупрофиль правый 45°" onerror="this.parentNode.innerHTML='<div class=\'photo-placeholder\'><div class=\'icon\'>📸</div><div class=\'label\'>Фото 5: Полупрофиль правый</div></div>'">
+            </div>
+            <div class="angle-text">
+                <div class="step-badge">
+                    <div class="step-number">5</div>
+                    <span class="step-label">Ракурс пятый</span>
+                </div>
+                <h2>Полупрофиль правый (45°)</h2>
+                <p>Симметрично: поворот вправо на 45 градусов. Видны оба глаза, левый — чуть больше.</p>
+                <p>Вместе с четвёртым ракурсом даёт полную картину асимметрии и помогает спланировать точные коррекции.</p>
+                <div class="angle-tips">
+                    <p><strong>Совет:</strong> Взгляд направлен прямо вперёд, а не в камеру — так лицо в более естественном положении.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="angle-step reverse">
+            <div class="angle-photo">
+                <img src="images/photo-guide-6.jpg" alt="Вид снизу — базальный ракурс" onerror="this.parentNode.innerHTML='<div class=\'photo-placeholder\'><div class=\'icon\'>📸</div><div class=\'label\'>Фото 6: Вид снизу</div></div>'">
+            </div>
+            <div class="angle-text">
+                <div class="step-badge">
+                    <div class="step-number">6</div>
+                    <span class="step-label">Ракурс шестой</span>
+                </div>
+                <h2>Вид снизу (базальный)</h2>
+                <p>Запрокиньте голову назад так, чтобы кончик носа смотрел прямо в камеру. Камера направлена снизу вверх.</p>
+                <p>Этот ракурс показывает форму и симметрию ноздрей, колумеллу и базу носа — детали, не видимые с других углов.</p>
+                <div class="angle-tips">
+                    <p><strong>Совет:</strong> Удобнее всего сделать этот снимок самостоятельно — держите телефон перед лицом и поднимайте подбородок вверх.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="angle-step">
+            <div class="angle-photo">
+                <img src="images/photo-guide-7.jpg" alt="Анфас с опущенным взглядом" onerror="this.parentNode.innerHTML='<div class=\'photo-placeholder\'><div class=\'icon\'>📸</div><div class=\'label\'>Фото 7: Анфас, взгляд вниз</div></div>'">
+            </div>
+            <div class="angle-text">
+                <div class="step-badge">
+                    <div class="step-number">7</div>
+                    <span class="step-label">Ракурс седьмой</span>
+                </div>
+                <h2>Анфас, взгляд слегка вниз</h2>
+                <p>Лицо смотрит прямо, но взгляд опущен на 10–15 градусов вниз. Голова не наклоняется — только глаза.</p>
+                <p>Помогает оценить выступание кончика носа, его соотношение с губой и общий баланс нижней трети лица.</p>
+                <div class="angle-tips">
+                    <p><strong>Совет:</strong> Смотрите на точку примерно в метре перед собой на полу. Лицо при этом остаётся прямым.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Mistakes -->
+<section class="mistakes-section">
+    <div class="container">
+        <h2 class="section-title">Частые ошибки</h2>
+        <p class="section-sub">Из-за них фотографии приходится переделывать</p>
+        <div class="mistakes-grid">
+            <div class="mistake-card">
+                <div class="mistake-icon">🤳</div>
+                <h4>Фронтальная камера</h4>
+                <p>Широкоугольный объектив фронтальной камеры искажает пропорции носа. Используйте только основную камеру на расстоянии 1,5–2 метра.</p>
+            </div>
+            <div class="mistake-card">
+                <div class="mistake-icon">💄</div>
+                <h4>Макияж и тональный крем</h4>
+                <p>Макияж скрывает детали рельефа кожи, цвет и текстуру. Приходите на фото «как есть» — это помогает видеть реальную картину.</p>
+            </div>
+            <div class="mistake-card">
+                <div class="mistake-icon">💇</div>
+                <h4>Волосы закрывают лицо</h4>
+                <p>Пряди на щеках или спускающиеся на нос мешают оценить контуры. Соберите волосы в хвост или заколите.</p>
+            </div>
+            <div class="mistake-card">
+                <div class="mistake-icon">🌅</div>
+                <h4>Свет сзади или сбоку</h4>
+                <p>Контровой свет превращает лицо в силуэт. Боковой даёт жёсткие тени. Встаньте лицом к источнику света.</p>
+            </div>
+            <div class="mistake-card">
+                <div class="mistake-icon">📐</div>
+                <h4>Неправильный угол камеры</h4>
+                <p>Камера выше или ниже уровня лица искажает форму носа. Строго на уровне глаз — для анфаса и профилей.</p>
+            </div>
+            <div class="mistake-card">
+                <div class="mistake-icon">😬</div>
+                <h4>Напряжённое выражение</h4>
+                <p>Улыбка или нахмуренные брови меняют форму кончика носа. Нейтральное расслабленное выражение лица — обязательное условие.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Готовы отправить фотографии?</h2>
+        <p>Сделайте снимки по инструкции и запишитесь на консультацию. Я изучу фотографии заранее и мы сразу перейдём к делу.</p>
+        <a href="https://taplink.cc/dr_tyukin" target="_blank" class="cta-btn">Записаться на консультацию</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <a href="index.html" class="footer-back">← Вернуться на главную</a>
+        <p>&copy; 2026 Валентин Тюкин — Ринопластика. Все права защищены.</p>
+        <p>Ростов-на-Дону • Частный приём</p>
+    </div>
+</footer>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuItems = document.getElementById('menuItems');
+
+    menuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        menuItems.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.menu-items a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            menuItems.classList.remove('active');
+        });
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!menuItems.contains(e.target) && !menuToggle.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            menuItems.classList.remove('active');
+        }
+    });
+</script>
+</body>
+</html>
